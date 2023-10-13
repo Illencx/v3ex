@@ -1,26 +1,47 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router'
+import { getSysStat } from '@/stores/systemStat'
+const store = getSysStat()
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
+  <div class="topbar trans" v-if="store.count">
+    <div>@Illencx</div>
+  </div>
+  <div class="topbar normal" v-if="!store.count">
+  </div>
   <RouterView />
 </template>
 
 <style scoped>
+@font-face {
+  font-family: 'nerd';
+  src: url('@/assets/nerd.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: '3270';
+  src: url('@/assets/3270.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  font-family: nerd;
+  padding: 0;
+  margin: 0;
+}
+
+.topbar{
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 0, 0);
+  height: 10vh;
+  width: 100vw;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -80,6 +101,12 @@ nav a:first-of-type {
 
     padding: 1rem 0;
     margin-top: 1rem;
+  }
+  .trans{
+    background-color: rgba(27, 26, 26, 0.485);
+  }
+  .normal{
+    background-color: white;
   }
 }
 </style>
