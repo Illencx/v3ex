@@ -22,7 +22,6 @@ const renderer = new THREE.WebGLRenderer({
     alpha: false,
 });
 const controls = new OrbitControls(camera, renderer.domElement); // 接入相机控制
-
 renderer.setSize( window.innerWidth, window.innerHeight );
 // eslint-disable-next-line no-unused-vars
 const axesHelper = new THREE.AxesHelper(5)
@@ -31,11 +30,26 @@ const remix = ref(null);
 // 几何体
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const geometryPlane = new THREE.PlaneGeometry( 100, 100 );
-const materialPlane = new THREE.MeshBasicMaterial( {color: 0x000000, side: THREE.DoubleSide} );
+const materialPlane = new THREE.MeshBasicMaterial( {color: 0x000000, side: THREE.DoubleSide, framewire:true} );
 const plane = new THREE.Mesh( geometryPlane, materialPlane );
 plane.rotateX(THREE.MathUtils.degToRad(90))
 plane.renderOrder = 100
-scene.add(plane)
+// scene.add(plane) 
+
+// const newGeo = new THREE.BufferGeometry()
+// const vertices = new Float32Array([
+//     0, 0, 0, //顶点1坐标
+//     50, 0, 0, //顶点2坐标
+//     0, 100, 0, //顶点3坐标
+//     0, 0, 10, //顶点4坐标
+//     0, 0, 100, //顶点5坐标
+//     50, 0, 10, //顶点6坐标
+// ]);
+// const mp = new THREE.MeshBasicMaterial( {color: 0xdddddd, side: THREE.DoubleSide} );
+// const attribue = new THREE.BufferAttribute(vertices, 3); 
+// newGeo.attributes.position = attribue;
+// const ng = new THREE.Mesh( newGeo, mp );
+// scene.add(ng)
 // 材质
 const material = new THREE.MeshBasicMaterial( {
     color: 0xffffff,wireframe:true
