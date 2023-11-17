@@ -5,11 +5,11 @@ const store = getSysStat()
 </script>
 
 <template>
-  <div class="topbar trans" v-if="store.count">
+  <!-- <div class="topbar trans" v-if="store.count">
     <div>@Illencx</div>
   </div>
   <div class="topbar normal" v-if="!store.count">
-  </div>
+  </div> -->
   <RouterView />
 </template>
 
