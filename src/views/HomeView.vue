@@ -21,7 +21,9 @@ const scrollEvent = _ => {
     <div class="window">
       <RemixPage></RemixPage>
     </div>
-    <div class="window">2</div>
+    <div class="window">
+      
+    </div>
     <div class="window">3</div>
     <div class="window">4</div>
     <div class="window">5</div>

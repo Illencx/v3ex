@@ -51,8 +51,8 @@ const cube1 = new THREE.Mesh( geometry1, material );
 const cube2 = new THREE.Mesh( geometry2, material2 );
 cube.renderOrder = 10
 cube.position.set(0.5,1,0)
-cube1.position.set(2.5,2,0)
-cube2.position.set(4.5,.85,0)
+cube1.position.set(2,2,0)
+cube2.position.set(3.5,.85,0)
 // 加入场景
 scene.add( cube,cube1,cube2 )
 scene.add(axesHelper)
